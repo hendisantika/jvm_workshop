@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Insert New Candidate</title>
+</head>
+<body>
+<h2>Insert New Candidate</h2>
+
+<form action="#" th:action="@{/candidates/save}" th:object="${c}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <table border="1">
+
+        <tbody>
+        <tr>
+            <td>ID</td>
+            <td><input type="text" th:field="${c.id}" readonly="readonly"/></td>
+        </tr>
+
+        <tr>
+            <td>Nama</td>
+            <td><input type="text" th:field="${c.name}" /></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="text" th:field="${c.email}" /></td>
+        </tr>
+
+
+        <tr>
+            <td>Phone</td>
+            <td><input type="text" th:field="${c.phone}" /></td>
+        </tr>
+
+
+        <tr>
+            <td>Address</td>
+            <td><input type="text" th:field="${c.address}" /></td>
+        </tr>
+
+
+        <tr>
+            <td>&nbsp;</td>
+            <td><input type="submit" value="Simpan" /></td>
+            <td>&nbsp;</td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Home Page</title>
+</head>
+<body>
+
+<h2>Insert Contact</h2>
+
+<form action="#" th:action="@{/contacts/save}" th:object="${contact}" method="post">
+    <table border="1">
+        <tbody>
+        <tr>
+            <td>Nama</td>
+            <td><input type="text" th:field="*{name}" /></td>
+            <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Pesan error</td>
+        </tr>
+
+        <tr>
+            <td>Email</td>
+            <td><input type="text" th:field="*{email}" /></td>
+            <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Pesan error</td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td><input type="text" th:field="*{phone}" /></td>
+            <td th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Pesan error</td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td><input type="text" th:field="*{address}" /></td>
+            <td th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Pesan error</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><input type="submit" value="Simpan" /></td>
+            <td>&nbsp;</td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+
+<h2>List Contacts</h2>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>EMail</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="c : ${contacts}">
+        <td th:text="${c.id}">1</td>
+        <td th:text="${c.name}">Hendi Santika</td>
+        <td th:text="${c.phone}">081321411881</td>
+        <td th:text="${c.email}">hendisantika@yahoo.co.id</td>
+        <td align="center">
+            <a th:href="@{/contacts/edit/{id}(id=${c.id})}"><span class="glyphicon glyphicon-edit">Edit</span></a> &nbsp; | &nbsp;
+            <a th:href="@{/contacts/delete/{id}(id=${c.id})}"><span class="glyphicon glyphicon-trash">Delete</span></a> |
+            <!--<button class="btn btn-danger"-->
+                    <!--onclick="this.disabled=true;post('@{/candidates/delete/{id}')">Delete</button>-->
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
