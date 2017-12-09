@@ -1,10 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+    <meta charset="UTF-8"/>
+    <title>Insert New Candidate</title>
 </head>
 <body>
-$END$
+<h2>Insert New Candidate</h2>
+
+<form action="#" th:action="@{/candidates/save}" th:object="${candidate}" method="post" enctype="multipart/form-data">
+    <input type="hidden" th:field="*{id}" />
+    <table border="1">
+
+        <tbody>
+        <tr>
+            <td>Nama</td>
+            <td><input type="text" th:field="*{fullName}" /></td>
+            <td th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}">Pesan error</td>
+        </tr>
+
+        <tr>
+            <td>Email</td>
+            <td><input type="text" th:field="*{email}" /></td>
+            <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Pesan error</td>
+        </tr>
+
+
+        <tr>
+            <td>Phone</td>
+            <td><input type="text" th:field="*{phone}" /></td>
+            <td th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Pesan error</td>
+        </tr>
+
+
+        <tr>
+            <td>Address</td>
+            <td><input type="text" th:field="*{address}" /></td>
+            <td th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Pesan error</td>
+        </tr>
+
+
+        <tr>
+            <td>&nbsp;</td>
+            <td><input type="submit" value="Simpan" /></td>
+            <td>&nbsp;</td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+
 </body>
 </html>

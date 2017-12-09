@@ -7,35 +7,35 @@
 <body>
 <h2>Insert New Candidate</h2>
 
-<form action="#" th:action="@{/candidates/save}" th:object="${candidate}" method="post" enctype="multipart/form-data">
+<form action="#" th:action="@{/candidates/save}" th:object="${c}" method="post">
     <input type="hidden" th:field="*{id}" />
     <table border="1">
 
         <tbody>
         <tr>
-            <td>Nama</td>
-            <td><input type="text" th:field="*{fullName}" /></td>
-            <td th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}">Pesan error</td>
+            <td>ID</td>
+            <td><input type="text" th:field="${c.id}" readonly="readonly"/></td>
         </tr>
 
         <tr>
+            <td>Nama</td>
+            <td><input type="text" th:field="${c.fullName}" /></td>
+        </tr>
+        <tr>
             <td>Email</td>
-            <td><input type="text" th:field="*{email}" /></td>
-            <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Pesan error</td>
+            <td><input type="text" th:field="${c.email}" /></td>
         </tr>
 
 
         <tr>
             <td>Phone</td>
-            <td><input type="text" th:field="*{phone}" /></td>
-            <td th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Pesan error</td>
+            <td><input type="text" th:field="${c.phone}" /></td>
         </tr>
 
 
         <tr>
             <td>Address</td>
-            <td><input type="text" th:field="*{address}" /></td>
-            <td th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Pesan error</td>
+            <td><input type="text" th:field="${c.address}" /></td>
         </tr>
 
 
