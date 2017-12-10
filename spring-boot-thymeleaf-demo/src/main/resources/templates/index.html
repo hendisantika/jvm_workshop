@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Home Page</title>
+</head>
+<body>
+<h2>Spring Boot Demo</h2>
+<ul>
+    <li th:text="'Waktu : ' + ${now}">Ini nanti akan diganti waktu</li>
+    <li th:text="'Nama : ' + ${nama}">Nanti diisi nama</li>
+    <li>Create User : <a th:href="@{/app/create-user}">Link Create User</a></li>
+</ul>
+
+
+
+</body>
+</html>
